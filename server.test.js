@@ -22,3 +22,9 @@ test('GET /all ska returnera en array', async() => {
     const response = JSON.parse((await supertest(server).get('/all')).text);
     expect(Array.isArray(response)).toBeTruthy();
 })
+
+//Checkar att json objektet som servern skickar har rätt id
+test('GET /id=1 ska returnera tasken med id1', async() => {
+    const response = JSON.parse((await supertest(server).get('/id=1')).text);
+    expect(response.id).toBe(1);
+})
