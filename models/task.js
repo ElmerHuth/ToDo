@@ -19,8 +19,8 @@ class Task {
         tasks.push(task);
     }
 
-    static remove(todo){
-        tasks.filter((task) => task.id != todo.id);
+    static remove(target){
+        tasks.filter((task) => task.id != target.id);
     }
 
     static edit(id, description) {
