@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
-const tasks = [
+let tasks = [
   {
     id: 1,
     name: 'name1',
