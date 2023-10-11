@@ -41,4 +41,8 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
+app.get('/ping', (req, res) => {
+  res.send('pong');
+})
+
 module.exports = app;
