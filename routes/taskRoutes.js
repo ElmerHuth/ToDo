@@ -1,6 +1,17 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const router = express.Router();
+const taskController = require('../controllers/taskController');
 
+router.get('/', taskController.getAllTasks);
+router.get('/tasks', taskController.getAllTasks);
+router.get('/id=:id', taskController.getTask);
+router.post('/id=:id', taskController.addTask);
+router.put('/id=:id', taskController.editTask);
+router.delete('/id=:id', taskController.removeTask);
+
+module.exports = router;
+
+/*
 let tasks = [
   {
     id: 1,
@@ -18,8 +29,8 @@ let tasks = [
     description: 'description3'
   },
 ];
-
-/* GET home page. */
+*/
+/* GET home page.
 router.get('/', function(req, res, next) {
   //res.render('index', { title: 'Express' });
   res.send();
@@ -33,6 +44,4 @@ router.get('/id=:id', function(req, res, next) {
   const id = parseInt(req.params.id);
   const returnval = tasks.filter((task) => task.id == id)[0];
   res.json(returnval);
-});
-
-module.exports = router;
+}); */
