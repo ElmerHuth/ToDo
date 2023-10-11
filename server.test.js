@@ -1,8 +1,15 @@
-const { default: test } = require('node:test');
+//const { default: test } = require('node:test');
 const server = require('./server');
 const supertest = require('supertest');
 
-//Ett test som checkar om servern svarar
+//Testar of servern lever
+it('Server is alive', async () => {
+    const response = await supertest(server).get('/ping');
+    expect(response.statusCode).toBe(200);
+    expect(response.text).toBe('pong');
+})
+
+//Testar om taskRoutes fungerar
 it('GET / ska returnera statuskoden 200', done => {
     supertest(server)
     .get('/')
@@ -19,8 +26,8 @@ it('GET /jibberish ska returnera statuskoden 404', done => {
 })
 
 //Ett test som checkar att servern ger tillbaka en array med GET /all
-it('GET /all ska returnera en array', async() => {
-    const response = JSON.parse((await supertest(server).get('/all')).text);
+it('GET /tasks ska returnera en array', async() => {
+    const response = JSON.parse((await supertest(server).get('/tasks')).text);
     expect(Array.isArray(response)).toBeTruthy();
 })
 
