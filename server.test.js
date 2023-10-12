@@ -32,8 +32,8 @@ it('GET /tasks ska returnera en array', async() => {
 })
 
 //Checkar att json objektet som servern skickar har rätt id
-it('GET /id=1 ska returnera tasken med id1', async() => {
-    const response = JSON.parse((await supertest(server).get('/id=1')).text);
+it('GET /tasks/1 ska returnera tasken med id 1', async() => {
+    const response = JSON.parse((await supertest(server).get('/tasks/1')).text);
     expect(response.id).toBe(1);
 })
 

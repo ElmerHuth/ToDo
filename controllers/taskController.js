@@ -5,8 +5,7 @@ exports.getAllTasks = (req, res) => {
 }
 
 exports.getTask = (req, res) => {
-    const id = parseInt(req.params.id);
-    res.json(tasks.filter((task) => task.id == id)[0]);
+    res.json(Task.get(parseInt(req.params.id)));
 }
 
 exports.addTask = (req, res) => {

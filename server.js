@@ -25,7 +25,7 @@ app.get('/ping', (req, res) => {
 
 app.use('/', taskRouter);
 app.use('/tasks', taskRouter);
-app.use('/id=:id', taskRouter);
+app.use('/tasks/:id', taskRouter);
 
 app.use('/users', usersRouter);
 

@@ -15,6 +15,10 @@ class Task {
         return tasks;
     }
 
+    static get(id) {
+        return tasks.filter((task) => task.id == id)[0];
+    }
+
     static add(task){
         tasks.push(task);
     }
