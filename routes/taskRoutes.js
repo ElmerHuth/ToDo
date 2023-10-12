@@ -4,10 +4,10 @@ const taskController = require('../controllers/taskController');
 
 router.get('/', taskController.getAllTasks);
 router.get('/tasks', taskController.getAllTasks);
-router.get('/id=:id', taskController.getTask);
-router.post('/id=:id', taskController.addTask);
-router.put('/id=:id', taskController.editTask);
-router.delete('/id=:id', taskController.removeTask);
+router.get('/tasks/:id', taskController.getTask);
+router.post('/tasks/:id', taskController.addTask);
+router.put('/tasks/:id', taskController.editTask);
+router.delete('/tasks/:id', taskController.removeTask);
 
 module.exports = router;
 
