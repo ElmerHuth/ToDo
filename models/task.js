@@ -6,8 +6,8 @@ let tasks = [
 ];
 
 class Task {
-    constructor(id, description) {
-        this.id = id;
+    constructor(description) {
+        this.id = tasks.length;
         this.description = description;
     }
 
@@ -21,14 +21,14 @@ class Task {
 
     static add(task){
         tasks.push(task);
+        return tasks[tasks.length - 1].id;
     }
 
     static remove(target){
         tasks.filter((task) => task.id != target.id);
     }
 
-    static edit(id, description) {
-        this.id = id;
+    static edit(description) {
         this.description = description;
     }
 }

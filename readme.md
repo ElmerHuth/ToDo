@@ -25,3 +25,4 @@ servern ska skicka tillbaka tasken med ett specifikt index
 - stött på problem med att få retur värdet från get requesten i testet för att få arrayn med tasks
 - löste problemet genom att stringifya JSON arrayn och sedan parsa den och lägga den i en variabel i testet
 - med hjälp av Fabian fick jag reda på att man kan ta bort JSON.stringify()
+- blev mycket strul med testen som targetta ett specifikt id, trodde att problemet låg med req.params.id men det var att jag inte hade funktionen i task klassen utan hadde den i taskController istället.

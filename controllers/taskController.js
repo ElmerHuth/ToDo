@@ -9,7 +9,7 @@ exports.getTask = (req, res) => {
 }
 
 exports.addTask = (req, res) => {
-    Task.add(req);
+    res.json(JSON.stringify(Task.get(1)));
 }
 
 exports.removeTask = (req, res) => {
