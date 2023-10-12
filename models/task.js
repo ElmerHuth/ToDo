@@ -7,7 +7,7 @@ let tasks = [
 
 class Task {
     constructor(description) {
-        this.id = tasks.length;
+        this.id = tasks.length + 1;
         this.description = description;
     }
 
@@ -19,17 +19,18 @@ class Task {
         return tasks.filter((task) => task.id == id)[0];
     }
 
-    static add(task){
-        tasks.push(task);
-        return tasks[tasks.length - 1].id;
+    static add(description){
+        tasks.push(new Task(description));
     }
 
     static remove(target){
-        tasks.filter((task) => task.id != target.id);
+        tasks = tasks.filter((task) => task.id != target.id);
+        console.log(tasks.filter((task) => task.id != target.id));
     }
 
-    static edit(description) {
-        this.description = description;
+    static edit(id, description) {
+        const index = tasks.findIndex((task) => {return task.id == id});
+        tasks[index].description = description;
     }
 }
 

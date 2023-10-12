@@ -5,17 +5,20 @@ exports.getAllTasks = (req, res) => {
 }
 
 exports.getTask = (req, res) => {
-    res.json(Task.get(parseInt(req.params.id)));
+    res.json(Task.get(req.params.id));
 }
 
 exports.addTask = (req, res) => {
-    res.json(JSON.stringify(Task.get(1)));
+    Task.add(req.body.description);
+    res.json(Task.getAll());
 }
 
 exports.removeTask = (req, res) => {
-    Task.remove(req);
+    Task.remove(Task.get(req.params.id));
+    res.json(Task.getAll());
 }
 
 exports.editTask = (req, res) => {
-    Task.edit(req);
+    Task.edit(req.params.id, req.body.description);
+    res.json(Task.getAll());
 }

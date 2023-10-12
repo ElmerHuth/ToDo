@@ -14,7 +14,7 @@ servern ska skicka tillbaka tasken med ett specifikt index
 
 - Delete /id ska ta bort en specifik task från tasks arrayen
 - Post / ska appenda en task till slutet av array'n
-- Put /id ska ändra en tasks JSON 
+- Put /id ska ändra en tasks JSON genom att hitta dens id i arrayn först
 
 ### Frågor för framtiden
 - Ska alla tasks ha ett unikt id?
@@ -26,3 +26,4 @@ servern ska skicka tillbaka tasken med ett specifikt index
 - löste problemet genom att stringifya JSON arrayn och sedan parsa den och lägga den i en variabel i testet
 - med hjälp av Fabian fick jag reda på att man kan ta bort JSON.stringify()
 - blev mycket strul med testen som targetta ett specifikt id, trodde att problemet låg med req.params.id men det var att jag inte hade funktionen i task klassen utan hadde den i taskController istället.
+- stötte på för många problem när det kommer till att skriva testerna så jag tänker göra koden först
