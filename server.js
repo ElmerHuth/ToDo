@@ -19,6 +19,10 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.get('/ping', (req, res) => {
+  res.send('pong');
+})
+
 app.use('/', taskRouter);
 app.use('/tasks', taskRouter);
 app.use('/id=:id', taskRouter);
@@ -40,9 +44,5 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
-
-app.get('/ping', (req, res) => {
-  res.send('pong');
-})
 
 module.exports = app;
