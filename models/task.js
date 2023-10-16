@@ -5,10 +5,21 @@ let tasks = [
     }
 ];
 
+let freeids = [];
+
 class Task {
     constructor(description) {
-        this.id = tasks.length + 1;
+        if (freeids.length > 0){
+            this.id = freeids[0];
+            freeids.shift();
+        }
+        else {
+            this.id = tasks.length + 1;
+        }
         this.description = description;
+
+        //this.id = tasks.length + 1;
+        //this.description = description;
     }
 
     static getAll() {
@@ -24,6 +35,8 @@ class Task {
     }
 
     static remove(target){
+        freeids.push(target.id);
+        freeids.sort();
         tasks = tasks.filter((task) => task.id != target.id);
         console.log(tasks.filter((task) => task.id != target.id));
     }
